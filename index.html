@@ -30,12 +30,22 @@
         <p>Email:</p>
         <p id="email"></p>
          
+        <button type="button" class="btn btn-danger" onclick="singOut();">Danger</button>
       </div>
     
     <script>
         function onSignIn(googleUser) {
             var profile = googleUser.getBasicProfile();
             $("#name").text(profile.getName());
+        }
+
+        function singOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.singOut().then(function () {
+                alert('True')
+            }
+
+            )
         }
     </script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
